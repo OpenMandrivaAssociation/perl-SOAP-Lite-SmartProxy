@@ -3,7 +3,7 @@
 Summary:	SOAP::Transport::HTTPX Server/Client side HTTP Smart Proxy for SOAP::Lite
 Name:		perl-%{real_name}
 Version:	0.11
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{real_name}
