@@ -1,16 +1,18 @@
-%define real_name SOAP-Lite-SmartProxy
+%define upstream_name    SOAP-Lite-SmartProxy
+%define upstream_version 0.11
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	SOAP::Transport::HTTPX Server/Client side HTTP Smart Proxy for SOAP::Lite
-Name:		perl-%{real_name}
-Version:	0.11
-Release:	%mkrel 4
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	http://search.cpan.org/CPAN/authors/id/D/DY/DYACOB/%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://search.cpan.org/CPAN/authors/id/D/DY/DYACOB/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The SmartProxy package is intended for use in a multi-server
@@ -26,7 +28,7 @@ to a new class name or fully qualified action URI (methods and
 arguments are assumed to remain constant however).
 
 %prep
-%setup -q -n %{real_name}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -46,4 +48,3 @@ rm -rf %{buildroot}
 %{perl_vendorlib}/Apache/SmartProxy.pm
 %{perl_vendorlib}/SOAP/Transport/HTTPX.pm
 %{_mandir}/*/*
-
